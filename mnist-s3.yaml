@@ -1,0 +1,11 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "mnist-s3"
+spec:
+  predictor:
+    serviceAccountName: s3-sa
+    model:
+      modelFormat:
+        name: tensorflow
+      storageUri: "s3://kserve-models-348052051973/mnist-tensorflow"

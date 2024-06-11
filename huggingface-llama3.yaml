@@ -1,0 +1,31 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: llama3
+spec:
+  predictor:
+    serviceAccountName: s3-sa
+    scaleTarget: 5
+    scaleMetric: concurrency
+    # batcher:
+    #   maxBatchSize: 4
+    #   maxLatency: 500
+    model:
+      storageUri: "YOUR_S3_BUCKET"
+      modelFormat:
+        name: huggingface
+      args:
+      - --model_name=llama3
+      - --dtype=bfloat16
+      # - --model_id=meta-llama/Meta-Llama-3-8B
+      resources:
+        limits:
+          cpu: "6"
+          memory: 24Gi
+          nvidia.com/gpu: "1"
+          ephemeral-storage: "40Gi"
+        requests:
+          cpu: "6"
+          memory: 24Gi
+          nvidia.com/gpu: "1"
+          ephemeral-storage: "20Gi"
