@@ -8,4 +8,4 @@ spec:
     model:
       modelFormat:
         name: tensorflow
-      storageUri: "s3://kserve-models-348052051973/mnist-tensorflow"
+      storageUri: "YOUR_S3_URL"
