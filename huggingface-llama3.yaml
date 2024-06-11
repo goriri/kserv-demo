@@ -7,6 +7,7 @@ spec:
     serviceAccountName: s3-sa
     scaleTarget: 5
     scaleMetric: concurrency
+    minReplicas: 0
     # batcher:
     #   maxBatchSize: 4
     #   maxLatency: 500

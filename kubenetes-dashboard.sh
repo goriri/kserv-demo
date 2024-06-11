@@ -20,3 +20,6 @@ kubectl describe secret dashboard-admin-sa-secret
 #kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
 #open in your browser
 #https://localhost:8443
+
+#kubectl edit svc/kubernetes-dashboard-kong-proxy -n kubernetes-dashboard
+#ClusterIP => LoadBalancer
